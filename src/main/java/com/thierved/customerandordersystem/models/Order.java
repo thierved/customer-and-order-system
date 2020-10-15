@@ -1,8 +1,18 @@
 package com.thierved.customerandordersystem.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "orders")
 public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "product_name")
     private String productName;
+
+    @Column(name = "quantity")
     private int quantity;
 
     public Order() {
