@@ -1,6 +1,7 @@
 package com.thierved.customerandordersystem.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,11 +21,19 @@ public class Customer {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "orders")
-    List<Order> orders;
+    List<Order> orders = new ArrayList<>()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
 
     public Customer() {
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     public int getId() {
