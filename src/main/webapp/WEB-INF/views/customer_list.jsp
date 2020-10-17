@@ -15,14 +15,14 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="customer" items="${customers}">
-                    <tr>
-                        <td>${customer.firstName}</td>
-                        <td>${customer.lastName}</td>
-                        <td>${customer.gender}</td>
-                        <td><a href="">Update</a>/<a href="">Delete</a></td>
-                    </tr>
-                </c:forEach>
+<%--                <c:forEach var="customer" items="${customers}">--%>
+<%--                    <tr>--%>
+<%--                        <td>${customer.firstName}</td>--%>
+<%--                        <td>${customer.lastName}</td>--%>
+<%--                        <td>${customer.gender}</td>--%>
+<%--                        <td><a href="">Update</a>/<a href="">Delete</a></td>--%>
+<%--                    </tr>--%>
+<%--                </c:forEach>--%>
             </tbody>
         </table>
     </div>

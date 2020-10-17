@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class CustomerController {
-    private CustomerRepository customerRepository;
 
     @Autowired
-    public CustomerController(CustomerRepository customerRepository) {
-    }
+    CustomerRepository customerRepository;
 
     @GetMapping("/customers")
     public String getCustomers(Model model) {
