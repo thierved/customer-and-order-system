@@ -10,11 +10,11 @@
     <table>
         <thead>
         <tr>
-            <td>First Name</td><td>Last Name</td><td>Gender</td><td>Update/Delete</td>
+            <th>Product Name</th><th>Quantity</th><th>Update/Delete</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="order" items="${order.orders}">
+        <c:forEach var="order" items="${orders}">
             <tr>
                 <td>${order.productName}</td>
                 <td>${order.quantity}</td>

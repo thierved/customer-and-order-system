@@ -21,19 +21,28 @@ public class Customer {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "orders")
-    List<Order> orders = new ArrayList<>()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<>();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
 
     public Customer() {
     }
 
-    public List<Order> getOrders() {
-        return orders;
+    public Customer(String gender, String firstName, String lastName) {
+        this.gender = gender;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
+
+    public void removeOrder(Order order) {
+        orders.remove(order);
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 
     public int getId() {

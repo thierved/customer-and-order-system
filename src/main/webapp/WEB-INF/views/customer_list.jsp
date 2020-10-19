@@ -8,21 +8,22 @@
 <body>
     <div class="container">
         <h1>List of Customers</h1>
+        <a href="${pageContext.request.contextPath}/add_customer">Add Customer</a>
         <table>
             <thead>
                 <tr>
-                    <td>First Name</td><td>Last Name</td><td>Gender</td><td>Update/Delete</td>
+                    <th>First Name</th><th>Last Name</th><th>Gender</th><th>Update/Delete</th>
                 </tr>
             </thead>
             <tbody>
-<%--                <c:forEach var="customer" items="${customers}">--%>
-<%--                    <tr>--%>
-<%--                        <td>${customer.firstName}</td>--%>
-<%--                        <td>${customer.lastName}</td>--%>
-<%--                        <td>${customer.gender}</td>--%>
-<%--                        <td><a href="">Update</a>/<a href="">Delete</a></td>--%>
-<%--                    </tr>--%>
-<%--                </c:forEach>--%>
+                <c:forEach var="customer" items="${customers}">
+                    <tr>
+                        <td>${customer.firstName}</td>
+                        <td>${customer.lastName}</td>
+                        <td>${customer.gender}</td>
+                        <td><a href="${pageContext.request.contextPath}/orders">Update</a>/<a href="">Delete</a></td>
+                    </tr>
+                </c:forEach>
             </tbody>
         </table>
     </div>

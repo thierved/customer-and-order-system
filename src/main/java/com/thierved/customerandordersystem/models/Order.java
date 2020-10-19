@@ -15,7 +15,24 @@ public class Order {
     @Column(name = "quantity")
     private int quantity;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
     public Order() {
+    }
+
+    public Order(String name, int quantity) {
+        this.productName = name;
+        this.quantity = quantity;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public int getId() {
