@@ -3,3 +3,12 @@
     margin: 5em auto;
     background-color: darkgrey;
 }
+
+form {
+    display: flex;
+    margin: 1rem auto;
+}
+
+.input-el {
+
+}

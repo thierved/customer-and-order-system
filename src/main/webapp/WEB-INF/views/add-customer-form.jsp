@@ -2,18 +2,30 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
+    <link rel="stylesheet" href="css/main.css">
     <title>Add Customer Form</title>
 </head>
 <body>
-    Add Customer!
+    <div class="container">
+        Add Customer!
     <form:form action="${pageContext.request.contextPath}/customers" modelAttribute="customer" method="post">
-        <label for="first-name">First Name</label>
-        <input type="text" id="first-name" name="firstName" path="lastName">
-        <label for="last-name">First Name</label>
-        <input type="text" id="last-name" name="lastName" path="lastName">
-        <label for="gender">First Name</label>
-        <input type="text" id="gender" name="gender" path="firstName">
+        <div class="input-el">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="firstName" path="lastName">
+        </div>
+
+        <div class="input-el">
+            <label for="last-name">First Name</label>
+            <input type="text" id="last-name" name="lastName" path="lastName">
+        </div>
+
+        <div class="input-el">
+            <label for="gender">Gender</label>
+            <input type="text" id="gender" name="gender" path="firstName">
+        </div>
+
         <input type="submit" value="Add Customer">
     </form:form>
+    </div>
 </body>
 </html>

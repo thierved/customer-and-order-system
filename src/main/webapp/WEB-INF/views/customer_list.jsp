@@ -17,11 +17,16 @@
             </thead>
             <tbody>
                 <c:forEach var="customer" items="${customers}">
+                    <c:url var="orderLink" value="/orders">
+                        <c:param name="customerId" value="${customer.id}" />
+                    </c:url>
                     <tr>
                         <td>${customer.firstName}</td>
                         <td>${customer.lastName}</td>
                         <td>${customer.gender}</td>
-                        <td><a href="${pageContext.request.contextPath}/orders">Update</a>/<a href="">Delete</a></td>
+                        <td><a href="${orderLink}">
+                            Update</a>/<a href="${orderLink}">Delete</a>
+                        </td>
                     </tr>
                 </c:forEach>
             </tbody>
