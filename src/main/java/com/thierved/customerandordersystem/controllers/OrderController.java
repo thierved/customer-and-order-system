@@ -17,7 +17,6 @@ public class OrderController {
 
     @Autowired
     CustomerRepository customerRepository;
-    OrderRepository orderRepository;
     private int id;
 
     @GetMapping("/orders")
@@ -47,22 +46,31 @@ public class OrderController {
     public String updateOrder(@RequestParam("orderId") int orderId,
                               @ModelAttribute("order") Order order,
                               Model model) {
-        model.addAttribute("order", orderRepository.getOne(orderId));
+        List<Order> customerOrders = customerRepository.getOne(id).getOrders();
+        for (Order o: customerOrders) {
+            if (o.getId() == orderId) {
+                model.addAttribute("order", o);
+            }
+        }
         return "order-update-form";
     }
 
-    @PostMapping("update-order")
-    public String updateOrder(@ModelAttribute("order") Order order) {
-        System.out.println(orderRepository.getOne(order.getId()));
-        return "redirect:/orders";
-    }
-
-
-
-    @GetMapping("/delete")
-    public String deleteOrder(@ModelAttribute("order") Order orderToDelete) {
-        System.out.println(orderToDelete);
+    @PostMapping("/update-order")
+    public String updateOder(@ModelAttribute("order") Order order,
+                             @RequestParam("orderId") int orderId) {
+        List<Order> customerOrders = customerRepository.getOne(id).getOrders();
+        for (Order o: customerOrders) {
+            if (o.getId() == orderId) {
+                o.setProductName(order.getProductName());
+                o.setQuantity(order.getQuantity());
+                customerRepository.save(customerRepository.getOne(id));
+            }
+            System.out.println(o.getProductName());
+        }
         return "redirect:/orders?customerId=" + id;
     }
+
+
+
 
 }
