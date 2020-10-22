@@ -8,7 +8,29 @@
 <body>
 <div class="container">
     <h1>List of orders</h1>
-    <a href="${pageContext.request.contextPath}/add-order">Add Order</a>
+    <table>
+        <thead>
+        <tr>
+            <th>First Name</th><th>Last Name</th><th>Gender</th><th>Update/Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+            <c:url var="orderLink" value="/update-customer">
+                <c:param name="customerId" value="${customer.id}" />
+            </c:url>
+            <c:url var="customerLink" value="/customer/delete">
+                <c:param name="customerId" value="${customer.id}" />
+            </c:url>
+            <tr>
+                <td>${customer.firstName}</td>
+                <td>${customer.lastName}</td>
+                <td>${customer.gender}</td>
+                <td><a href="${orderLink}">
+                    Update</a>/<a href="${customerLink}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table>
         <thead>
         <tr>
@@ -17,14 +39,21 @@
         </thead>
         <tbody>
         <c:forEach var="order" items="${orders}">
+            <c:url var="updateLink" value="/update-order">
+                <c:param name="orderId" value="${order.id}" />
+            </c:url>
+            <c:url var="deleteLink" value="/delete">
+                <c:param name="orderId" value="${order.id}" />
+            </c:url>
             <tr>
                 <td>${order.productName}</td>
                 <td>${order.quantity}</td>
-                <td><a href="">Update</a>/<a href="">Delete</a></td>
+                <td><a href="${updateLink}">Update</a>/<a href="${deleteLink}">Delete</a></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <a href="${pageContext.request.contextPath}/add-order">Add Order</a>
 </div>
 </body>
 </html>

@@ -14,7 +14,6 @@ public class CustomerController {
 
     @Autowired
     CustomerRepository customerRepository;
-    OrderRepository orderRepository;
 
     @GetMapping("/add_customer")
     public String addCustomer(@ModelAttribute("customer") Customer customer) {
@@ -40,6 +39,30 @@ public class CustomerController {
         return "redirect:/customers";
     }
 
+    @GetMapping("/customer/delete")
+    public String removeCustomer(@RequestParam("customerId") int customerId) {
+        Customer customerToRemove = customerRepository.getOne(customerId);
+        customerRepository.delete(customerToRemove);
+        return "redirect:/customers";
+    }
 
+    @GetMapping("/update-customer")
+    public String updateCustomer(@RequestParam("customerId") int customerId,
+                                 @ModelAttribute("customer") Customer customer,
+                                 Model model) {
+        model.addAttribute("customer", customerRepository.getOne(customerId));
+        return "update-customer-form";
+    }
+
+    @PostMapping("/update-customer")
+    public String updateCustomer(@ModelAttribute("customer") Customer customer) {
+
+        Customer customerToUpdate = customerRepository.getOne(customer.getId());
+        customerToUpdate.setFirstName(customer.getFirstName());
+        customerToUpdate.setLastName(customer.getLastName());
+        customerToUpdate.setGender(customer.getGender());
+        customerRepository.save(customerToUpdate);
+        return "redirect:/customers";
+    }
 
 }

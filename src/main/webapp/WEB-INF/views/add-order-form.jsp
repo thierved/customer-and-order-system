@@ -2,12 +2,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" href="css/main.css">
     <title>Add Order</title>
 </head>
 <body>
-    <div>
+    <div class="form-container container">
         <h1>Add Order</h1>
-        <form:form modelAttribute="order" action="${pageContext.request.contextPath}/orders" method="post">
+        <form:form modelAttribute="order" action="${pageContext.request.contextPath}/saveOrder" method="post">
             <div class="input-el">
                 <label for="product-name">Product Name</label>
                 <form:input path="productName" id="product-name"/>

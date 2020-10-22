@@ -8,7 +8,6 @@
 <body>
     <div class="container">
         <h1>List of Customers</h1>
-        <a href="${pageContext.request.contextPath}/add_customer">Add Customer</a>
         <table>
             <thead>
                 <tr>
@@ -20,17 +19,21 @@
                     <c:url var="orderLink" value="/orders">
                         <c:param name="customerId" value="${customer.id}" />
                     </c:url>
+                    <c:url var="customerLink" value="/customer/delete">
+                        <c:param name="customerId" value="${customer.id}" />
+                    </c:url>
                     <tr>
                         <td>${customer.firstName}</td>
                         <td>${customer.lastName}</td>
                         <td>${customer.gender}</td>
                         <td><a href="${orderLink}">
-                            Update</a>/<a href="${orderLink}">Delete</a>
+                            Update</a>/<a href="${customerLink}">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
+        <a href="${pageContext.request.contextPath}/add_customer">Add Customer</a>
     </div>
 </body>
 </html>

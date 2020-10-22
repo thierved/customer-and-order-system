@@ -6,7 +6,7 @@
     <title>Add Customer Form</title>
 </head>
 <body>
-    <div class="container">
+    <div class="form-container container">
         Add Customer!
     <form:form action="${pageContext.request.contextPath}/customers" modelAttribute="customer" method="post">
         <div class="input-el">
