@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.ObjDoubleConsumer;
 
 @Controller
 public class OrderController {
@@ -57,16 +58,21 @@ public class OrderController {
 
     @PostMapping("/update-order")
     public String updateOder(@ModelAttribute("order") Order order,
-                             @RequestParam("orderId") int orderId) {
-        List<Order> customerOrders = customerRepository.getOne(id).getOrders();
-        for (Order o: customerOrders) {
+                             @RequestParam("customer") Customer customer,
+                             @RequestParam("id") int orderId) {
+        customer.getOrders().forEach(o -> {
             if (o.getId() == orderId) {
                 o.setProductName(order.getProductName());
                 o.setQuantity(order.getQuantity());
-                customerRepository.save(customerRepository.getOne(id));
+                customerRepository.save(customer);
             }
-            System.out.println(o.getProductName());
-        }
+        });
+        return "redirect:/orders?customerId=" + customer.getId();
+    }
+
+    @GetMapping("/delete-order")
+    public String removeOrder(@RequestParam("orderId") int orderId) {
+
         return "redirect:/orders?customerId=" + id;
     }
 

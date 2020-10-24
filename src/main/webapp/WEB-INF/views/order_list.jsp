@@ -42,7 +42,7 @@
             <c:url var="updateLink" value="/update-order">
                 <c:param name="orderId" value="${order.id}" />
             </c:url>
-            <c:url var="deleteLink" value="/delete">
+            <c:url var="deleteLink" value="/delete-order">
                 <c:param name="orderId" value="${order.id}" />
             </c:url>
             <tr>

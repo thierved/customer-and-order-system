@@ -8,14 +8,16 @@
 <body>
     <div class="container">
         <h1>Update Order</h1>
-        <form:form modelAttribute="order" action="${pageContext.request.contextPath}/update-order" method="post">
+        <form:form action="${pageContext.request.contextPath}/update-order" method="post" modelAttribute="order">
+            <form:hidden path="customer"/>
+            <form:hidden path="id"/>
             <div class="input-el">
                 <label>Product Name</label>
-                <for:input path="productName"/>
+                <form:input path="productName"/>
             </div>
             <div class="input-el">
                 <label>Quantity</label>
-                <for:input path="quantity"/>
+                <form:input path="quantity"/>
             </div>
             <input type="submit">            
         </form:form>
