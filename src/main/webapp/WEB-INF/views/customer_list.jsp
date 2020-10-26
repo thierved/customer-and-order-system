@@ -3,11 +3,12 @@
 <html>
 <head>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/table.css">
     <title>Title</title>
 </head>
 <body>
     <div class="container">
-        <h1>List of Customers</h1>
+        <h1 class="title">List of Customers</h1>
         <table>
             <thead>
                 <tr>
@@ -26,14 +27,15 @@
                         <td>${customer.firstName}</td>
                         <td>${customer.lastName}</td>
                         <td>${customer.gender}</td>
-                        <td><a href="${orderLink}">
-                            Update</a>/<a href="${customerLink}">Delete</a>
+                        <td>
+                            <a href="${orderLink}">detail</a>
+                            <a href="${customerLink}">delete</a>
                         </td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
-        <a href="${pageContext.request.contextPath}/add_customer">Add Customer</a>
+        <a class="add-btn" href="${pageContext.request.contextPath}/add_customer">Add Customer</a>
     </div>
 </body>
 </html>

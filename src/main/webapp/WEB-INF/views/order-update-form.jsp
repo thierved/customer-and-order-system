@@ -7,9 +7,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Update Order</h1>
+        <h1 class="title">Update Order</h1>
         <form:form action="${pageContext.request.contextPath}/update-order" method="post" modelAttribute="order">
-            <form:hidden path="customer"/>
+
             <form:hidden path="id"/>
             <div class="input-el">
                 <label>Product Name</label>

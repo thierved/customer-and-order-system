@@ -18,6 +18,7 @@ public class OrderController {
 
     @Autowired
     CustomerRepository customerRepository;
+    OrderRepository orderRepository;
     private int id;
 
     @GetMapping("/orders")
@@ -58,21 +59,24 @@ public class OrderController {
 
     @PostMapping("/update-order")
     public String updateOder(@ModelAttribute("order") Order order,
-                             @RequestParam("customer") Customer customer,
                              @RequestParam("id") int orderId) {
-        customer.getOrders().forEach(o -> {
-            if (o.getId() == orderId) {
-                o.setProductName(order.getProductName());
-                o.setQuantity(order.getQuantity());
-                customerRepository.save(customer);
-            }
-        });
-        return "redirect:/orders?customerId=" + customer.getId();
+        Order orderToUpdate = orderRepository.findById(orderId);
+        orderToUpdate.setProductName(order.getProductName());
+        orderToUpdate.setQuantity(order.getQuantity());
+        orderRepository.saveAndFlush(orderToUpdate);
+        return "redirect:/orders?customerId=" + id;
     }
 
     @GetMapping("/delete-order")
     public String removeOrder(@RequestParam("orderId") int orderId) {
-
+        Customer customer = customerRepository.findCustomerByOrders_id(orderId);
+        for( Order order : customer.getOrders()) {
+            if (order.getId() == orderId) {
+                customer.removeOrder(order);
+                break;
+            }
+        }
+        customerRepository.saveAndFlush(customer);
         return "redirect:/orders?customerId=" + id;
     }
 

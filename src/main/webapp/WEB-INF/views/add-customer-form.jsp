@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="form-container container">
-        <h1>Add Customer</h1>
+        <h1 class="title">Add Customer</h1>
     <form:form action="${pageContext.request.contextPath}/customers" modelAttribute="customer" method="post">
         <div class="input-el">
             <label for="first-name">First Name</label>

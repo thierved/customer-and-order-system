@@ -1,28 +1,46 @@
-.container {
-    width: 100%;
-    height: 100vh;
-    background-color: #dbedfb;
-    text-align: center;
-}
-
-table {
-    border-collapse: collapse;
-    margin: 0 auto;
-}
-
-th, td {
-    padding: .3em 2em;
-}
-
-thead {
-    color: #fff;
-    background-color: #0e0114;
+* {
+    box-sizing: border-box;
 }
 
 body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    padding: 1rem;
+    background-color: #dbedfb;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.title {
+    margin: 0 0 2rem 0;
+    font-weight: 400;
+}
+
+.detail {
+    width: 50%;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: rgba(18, 80, 122, .13);
+    box-shadow: 0px 0px 5px 2px rgba(1, 63, 121, .23);
+}
+.detail h3 {
+    text-align: left;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+h3 span {
+    display: inline-block;
+    font-weight: 300;
+    width: 50%;
 }
 
 .form-container {
@@ -32,16 +50,19 @@ body {
     background: #dbedfb;
 }
 
+
 form {
     width: 60%;
-    max-width: 300px;
+    max-width: 400px;
     margin: 0 auto;
     padding: 2rem;
     border-radius: .5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ccc;
+    background-color: rgba(1, 63, 121, 0.651);
+    letter-spacing: 1.2px;
+    font-weight: 300;
 }
 
 .input-el {
@@ -50,8 +71,11 @@ form {
 }
 
 label {
-    display: block;
-    margin: .5rem 1rem;
+    width: 80%;
+    display: inline-block;
+    margin: .4rem auto;
+    text-align: left;
+    color: #fff;
 }
 
 input {
@@ -60,13 +84,23 @@ input {
     margin: .4rem auto;
     padding: .4rem 1rem;
     border: none;
-    border-radius: 1rem;
+    border-radius: .2rem;
     outline: none;
+    font-family: sans-serif;
+    font-size: inherit;
 }
 
 input[type="submit"] {
-    margin: 2rem;
-    padding: .75rem 0;
-    border-radius: 48rem;
-    font-size: 16px;
+    margin-top: 2rem;
+    padding: .6rem 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, .2);
+}
+
+.add-btn {
+    display: inline-block;
+    margin: 2rem auto;
+    border-radius: 5px;
+
 }

@@ -1,0 +1,36 @@
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: rgba(11, 113, 180, 0.171);
+}
+
+thead {
+    color: #fff;
+    background-color: rgba(4, 47, 75, 0.8);
+}
+
+th, td{
+    padding: .9rem 2rem;
+}
+
+tr td {
+    color: rgb(0, 28, 54);
+}
+
+tr:nth-child(even) td {
+    background-color: rgba(18, 80, 122, 0.3);
+}
+
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    padding: .4rem 1.5rem;
+    margin: 0 1rem;
+    background-color: rgba(1, 63, 121, 0.651);
+    color: #fff;
+    border-radius: .1rem;
+    font-style: italic;
+    font-weight: 300;
+}

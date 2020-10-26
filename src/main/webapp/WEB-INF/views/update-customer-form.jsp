@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="form-container container">
-    Update Customer!
+    <h1 class="title">Update Customer</h1>
     <form:form action="${pageContext.request.contextPath}/update-customer" modelAttribute="customer" method="post">
         <form:hidden path="id"/>
         <div class="input-el">
